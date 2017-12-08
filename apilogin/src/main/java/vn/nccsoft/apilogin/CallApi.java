@@ -1,6 +1,7 @@
 package vn.nccsoft.apilogin;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import java.text.DateFormat;
@@ -17,7 +18,8 @@ import retrofit2.Response;
  */
 
 public class CallApi {
-    public static void getTokenLogin(String username, String password) {
+
+    public static void getTokenLogin(final Context context, String username, String password) {
 
         Call<Item> mCall = ApiUtils.getAPIService().login(username,password);
         mCall.enqueue(new Callback<Item>() {
@@ -25,6 +27,12 @@ public class CallApi {
             public void onResponse(Call<Item> call, Response<Item> response) {
                 if(response.isSuccessful()) {
                     String  token = response.body().getToken();
+                    SharedPreferences sharedPreferences= context.getSharedPreferences("token_login", Context.MODE_PRIVATE);
+                    if(sharedPreferences!= null) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("token", token);
+                        editor.commit();
+                    }
                 }
             }
             @Override
