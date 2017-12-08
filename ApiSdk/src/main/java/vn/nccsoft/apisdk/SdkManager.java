@@ -1,6 +1,7 @@
 package vn.nccsoft.apisdk;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import java.text.DateFormat;
@@ -11,6 +12,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import vn.nccsoft.apisdk.model.Daily_login_online;
+import vn.nccsoft.apisdk.model.Item;
 import vn.nccsoft.apisdk.model.MessageServer;
 import vn.nccsoft.apisdk.model.Report_new_register;
 import vn.nccsoft.apisdk.model.Revenue_agency;
@@ -20,16 +22,17 @@ import vn.nccsoft.apisdk.model.Total_online;
  * Created by vancu on 20/11/2017.
  */
 
-public class CallApi {
-    public static void test(final Context context, String username, String password) {
+public class SdkManager {
+    public static void getTokenLogin(final Context context, String username, String password) {
 
-        Call<Item> mCall = ApiUtils.getAPIService().login(username,password);
+        Call<Item> mCall = ApiUtils.getAPIServiceLogin().login(username,password);
         mCall.enqueue(new Callback<Item>() {
             @Override
             public void onResponse(Call<Item> call, Response<Item> response) {
                 if(response.isSuccessful()) {
-                    String  json = response.body().getToken();
-                    Toast.makeText(context, json + "", Toast.LENGTH_LONG).show();
+                    String  token = response.body().getToken();
+                    SharedPrefsUtils sharedPrefsUtils=new SharedPrefsUtils();
+                    sharedPrefsUtils.setStringPreference(context,"token_login",token);
                 }
             }
             @Override
@@ -38,6 +41,7 @@ public class CallApi {
             }
         });
     }
+
     public static void insert_dlo(final Context context,Daily_login_online daily_login_online){
         final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();

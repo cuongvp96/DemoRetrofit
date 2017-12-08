@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import vn.nccsoft.apisdk.CallApi;
+import vn.nccsoft.apisdk.SdkManager;
 import vn.nccsoft.apisdk.model.Total_online;
 
 
@@ -26,7 +26,7 @@ Button button;
 
 
 
-        final CallApi testCall=new CallApi();
+        final SdkManager testCall=new SdkManager();
        // testCall.insert_dlo(getApplicationContext(),daily_login_online);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

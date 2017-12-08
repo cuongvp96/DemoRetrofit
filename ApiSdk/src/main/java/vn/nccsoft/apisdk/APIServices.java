@@ -5,6 +5,7 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import vn.nccsoft.apisdk.model.Item;
 import vn.nccsoft.apisdk.model.MessageServer;
 
 public interface APIServices {
@@ -13,11 +14,6 @@ public interface APIServices {
     Call<Item> login(@Field("username") String username,
                      @Field("password") String password
     );
-
-    @POST("/consumer/login/")
-    Call<Item> testLogin(@Body User user
-    );
-
     @POST("/description/daily_login_online.php")
     @FormUrlEncoded
     Call<MessageServer> insert_dlo(@Field("dlo_datetime") String dlo_datetime,

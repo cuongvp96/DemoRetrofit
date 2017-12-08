@@ -8,4 +8,8 @@ public class ApiUtils {
 
         return RetrofitClient.getClient().create(APIServices.class);
     }
+    public static APIServices getAPIServiceLogin() {
+
+        return RetrofitClient.getClientLogin().create(APIServices.class);
+    }
 }

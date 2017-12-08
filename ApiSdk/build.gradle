@@ -36,3 +36,15 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     implementation 'com.squareup.okhttp3:okhttp:3.6.0'
 }
+task deleteJar(type: Delete) {
+    delete 'libs/logmanagementlib.jar'
+}
+
+task createJar(type: Copy) {
+    from('build/intermediates/bundles/release/')
+    into('libs/jars/')
+    include('classes.jar')
+    rename('classes.jar', 'apisdk.jar')
+}
+
+createJar.dependsOn(deleteJar, build)
