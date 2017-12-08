@@ -15,12 +15,10 @@ public class Daily_login_online {
     public Daily_login_online() {
     }
 
-    public Daily_login_online(String dlo_datetime, int user_id, int game_id, int firt_login, int agency_id) {
-        this.dlo_datetime = dlo_datetime;
+    public Daily_login_online(int user_id, int game_id, int firt_login, int agency_id) {
         this.user_id = user_id;
         this.game_id = game_id;
         this.firt_login = firt_login;
-
         this.agency_id = agency_id;
     }
 

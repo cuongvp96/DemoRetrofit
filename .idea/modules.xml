@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApiSdk/ApiSdk.iml" filepath="$PROJECT_DIR$/ApiSdk/ApiSdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/DemoRetrofit.iml" filepath="$PROJECT_DIR$/DemoRetrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apilogin/apilogin.iml" filepath="$PROJECT_DIR$/apilogin/apilogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\NCCSOFT\DemoRetrofit\ApiSdk\login.iml" filepath="E:\NCCSOFT\DemoRetrofit\ApiSdk\login.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testcall/testcall.iml" filepath="$PROJECT_DIR$/testcall/testcall.iml" />
     </modules>
   </component>
 </project>

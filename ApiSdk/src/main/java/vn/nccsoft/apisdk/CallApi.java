@@ -3,6 +3,10 @@ package vn.nccsoft.apisdk;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,8 +39,9 @@ public class CallApi {
         });
     }
     public static void insert_dlo(final Context context,Daily_login_online daily_login_online){
-
-        Call<MessageServer> mCall = ApiUtils.getAPIService().insert_dlo(daily_login_online.getDlo_datetime(),daily_login_online.getUser_id(),
+        final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        Call<MessageServer> mCall = ApiUtils.getAPIService().insert_dlo(dateFormat.format(date),daily_login_online.getUser_id(),
         daily_login_online.getGame_id(),daily_login_online.getFirt_login(),daily_login_online.getAgency_id());
         mCall.enqueue(new Callback<MessageServer>() {
             @Override

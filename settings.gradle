@@ -1,1 +1,1 @@
-include ':app', ':testcall', ':ApiSdk'
+include ':app', ':ApiSdk', ':apilogin'
