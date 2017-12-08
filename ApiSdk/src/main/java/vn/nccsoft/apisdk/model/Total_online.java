@@ -1,10 +1,12 @@
 package vn.nccsoft.apisdk.model;
 
+import java.io.Serializable;
+
 /**
  * Created by vancu on 07/12/2017.
  */
 
-public class Total_online {
+public class Total_online implements Serializable {
     private int id;
     private String time;
     private int amount_user;
@@ -15,12 +17,6 @@ public class Total_online {
         this.game_id = game_id;
     }
 
-    public Total_online(int id, String time, int amount_user, int game_id) {
-        this.id = id;
-        this.time = time;
-        this.amount_user = amount_user;
-        this.game_id = game_id;
-    }
 
     public int getId() {
         return id;

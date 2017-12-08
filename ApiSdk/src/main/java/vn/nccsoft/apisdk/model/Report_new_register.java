@@ -1,12 +1,13 @@
 package vn.nccsoft.apisdk.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by vancu on 07/12/2017.
  */
 
-public class Report_new_register {
+public class Report_new_register implements Serializable {
     private int report_id;
     private int user_id;
     private int game_id;
@@ -17,21 +18,13 @@ public class Report_new_register {
     public Report_new_register() {
     }
 
-    public Report_new_register(int user_id, int game_id, int rnr_online_2m, int agency_id) {
+    public Report_new_register(int user_id, int game_id, int agency_id) {
         this.user_id = user_id;
         this.game_id = game_id;
-        this.rnr_online_2m = rnr_online_2m;
+        this.rnr_online_2m = 0;
         this.agency_id = agency_id;
     }
 
-    public Report_new_register(int report_id, int user_id, int game_id, int rnr_online_2m, Date rnr_time, int agency_id) {
-        this.report_id = report_id;
-        this.user_id = user_id;
-        this.game_id = game_id;
-        this.rnr_online_2m = rnr_online_2m;
-        this.rnr_time = rnr_time;
-        this.agency_id = agency_id;
-    }
 
     public int getReport_id() {
         return report_id;

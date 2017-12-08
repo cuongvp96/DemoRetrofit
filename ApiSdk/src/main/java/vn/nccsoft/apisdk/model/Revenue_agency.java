@@ -1,10 +1,12 @@
 package vn.nccsoft.apisdk.model;
 
+import java.io.Serializable;
+
 /**
  * Created by vancu on 07/12/2017.
  */
 
-public class Revenue_agency {
+public class Revenue_agency implements Serializable {
     private int agency_id;
     private float revenue;
     private int game_id;
