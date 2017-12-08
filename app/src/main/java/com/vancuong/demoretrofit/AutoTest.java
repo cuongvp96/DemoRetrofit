@@ -7,10 +7,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import com.vancuong.testcall.API.CallApi;
-import com.vancuong.testcall.API.OnCallBack;
-import com.vancuong.testcall.model.DailyLoginOnline;
-
 import java.util.ArrayList;
 
 /**
