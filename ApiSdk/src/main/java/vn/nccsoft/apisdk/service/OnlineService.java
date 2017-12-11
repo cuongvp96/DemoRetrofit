@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import vn.nccsoft.apisdk.model.Report_new_register;
+
 
 /**
  * Created by TWO on 11/20/2017.
@@ -13,7 +15,7 @@ import android.support.annotation.Nullable;
 
 public class OnlineService extends Service {
     private Handler handler;
-    private int delay = 5000;
+    private long delay = 5000;
 
     Runnable runnable = new Runnable() {
         public void run() {
@@ -31,6 +33,9 @@ public class OnlineService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         handler = new Handler();
+
+        if (intent !=null && intent.getExtras()!=null)
+            delay=intent.getExtras().getLong("time_delay");
         handler.postDelayed(runnable, delay);
         return START_NOT_STICKY;
     }
